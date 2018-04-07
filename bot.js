@@ -15,6 +15,13 @@
 var Twitter = require('twitter');
 var fs = require('fs');
 
+// var client = new Twitter({
+//     consumer_key: '3nHvdPzCLidgi0d0g8AJSQFpZ',
+//     consumer_secret: 'mfYAcJIYBMcSlZGcsYJxqySCWtiBYfvd9YE9EWUbVVRRylh3kP',
+//     access_token_key: '981694814445101056-etmMNN9n9M0s6fU9Dn6vtQrnicCxfW7',
+//     access_token_secret: 'mdb6WLuOVDDJhOPhl2Fl4dpH6gb2FvNkSGwfz5IeVhzNf'
+//   });
+
 
 //==================API KEYS ==========================
 var client = new Twitter({
@@ -95,7 +102,7 @@ var tweetSandler = function () {
   if (!(selected_tweet in historic_tweets)) {
       //Push the selected tweet in historic tweets
       historic_tweets.push(selected_tweet);
-      console.log("Yo " + selected_tweet.screen_name);
+      console.log("Yo " + selected_tweet.text);
   }
       
 
