@@ -31,7 +31,7 @@ var client = new Twitter({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
    
-  
+
 // Tweet Options 
 var all_tweets = [];
 var historic_tweets = [];
@@ -42,6 +42,23 @@ var otherArray = [
     "Rise Run Rest Repeat",
     "Never Stop Running",
     "You are your own limit 00:00:00",
+    "Wake up, Workout",
+    "Success isn't given it's earned",
+    "Don't let fatigue make a coward out of you",
+    "Write the Future",
+    "Victory is paid for in sweat",
+    "Earned not Given",
+    "If no one thinks you can, Then You Have To",
+    "There is no finish line",
+    "Unleash The Beast",
+    "#MakItCount",
+    "Walk to the stadium, Sprint to the finish",
+    "Nearly isn't Enough",
+    "Don't dream of winning, Train for it",
+    "Remain the fastest, Become the Greatest",
+    "Find Your Greatness",
+    "Run Further, Run Faster, Run Together",
+    "#BetterForIt",
     "Believe in the Run",
     "I'd rather be running",
     "Are we running today?",
