@@ -23,7 +23,7 @@ var fs = require('fs');
 //   });
 
 
-//==================API KEYS ==========================
+// //==================API KEYS ==========================
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -31,6 +31,7 @@ var client = new Twitter({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
    
+  
 // Tweet Options 
 var all_tweets = [];
 var historic_tweets = [];
@@ -73,7 +74,7 @@ var phrase = chooseRandom(otherArray)
 
 var tweetSandler = function () {
 //====================QUERY =========================================
-  var params = {q: 'uiltrack' || 'trackandfield' || 'trackmeet' || 'running', count: 50};
+  var params = {q: 'trackandfield' || 'trackmeet' || 'running' || 'uiltrack', count: 50};
   client.get('search/tweets', params, function(error, tweets, response) {
     if (!error) {
       console.log(tweets);
@@ -102,14 +103,14 @@ var tweetSandler = function () {
   if (!(selected_tweet in historic_tweets)) {
       //Push the selected tweet in historic tweets
       historic_tweets.push(selected_tweet);
-      console.log("Yo " + selected_tweet.text);
+      console.log("Yo " + selected_tweet.screen_name);
   }
       
 
 
   //============POST TWEET ===========================================
   //Test case for tweeting out 
-  client.post('statuses/update', {status: "RT @" + selected_tweet.screen_name + " " + selected_tweet.text + " " + phrase + " FOLLOW @Stop_Pre"}, function(error, tweet, response) {
+  client.post('statuses/update', {status: "RT @" + selected_tweet.screen_name + " " + selected_tweet.text + " ," + selected_tweet.location + " " + phrase + " , @Stop_Pre Knows Track Stuff"}, function(error, tweet, response) {
     if (!error) {
       console.log(tweet);
     }
@@ -126,4 +127,4 @@ var tweetSandler = function () {
 }
 
 tweetSandler();
-setInterval(tweetSandler, 900000)
+setInterval(tweetSandler, 1800000)
