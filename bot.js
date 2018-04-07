@@ -66,7 +66,7 @@ var phrase = chooseRandom(otherArray)
 
 var tweetSandler = function () {
 //====================QUERY =========================================
-  var params = {q: 'trackandfield' || 'trackmeet' || 'running' || 'run', count: 50};
+  var params = {q: 'uiltrack' || 'trackandfield' || 'trackmeet' || 'running', count: 50};
   client.get('search/tweets', params, function(error, tweets, response) {
     if (!error) {
       console.log(tweets);
