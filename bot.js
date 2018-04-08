@@ -35,6 +35,7 @@ var client = new Twitter({
 // Tweet Options 
 var all_tweets = [];
 var historic_tweets = [];
+
 var otherArray = [ 
     "If it doesn't challenge you, It won't change you",
     "Persist Until Success Happens #Push",
@@ -51,7 +52,7 @@ var otherArray = [
     "If no one thinks you can, Then You Have To",
     "There is no finish line",
     "Unleash The Beast",
-    "#MakItCount",
+    "#MakeItCount",
     "Walk to the stadium, Sprint to the finish",
     "Nearly isn't Enough",
     "Don't dream of winning, Train for it",
@@ -89,9 +90,37 @@ function chooseRandom(myArray) {
 //random array
 var phrase = chooseRandom(otherArray)
 
+
 var tweetSandler = function () {
+
+    
+    var searchQuery = [
+        'trackandfield',
+        'trackmeet',
+        'running',
+        'uiltrack',
+        'fartleks',
+        'mile repeats',
+        'mile run',
+        '26.2',
+        'discus',
+        '3200m',
+        '4x100',
+        'long run',
+        '110hurdles',
+        '4x400'
+    ]
+    
+    function randomquery(search) {
+        return search[Math.floor(Math.random() * search.length)];
+    }
+    
+    var myquery = randomquery(searchQuery)
+
+    console.log(myquery);
+
 //====================QUERY =========================================
-  var params = {q: 'trackandfield' || 'trackmeet' || 'running' || 'uiltrack', count: 50};
+  var params = {q: myquery, count: 100};
   client.get('search/tweets', params, function(error, tweets, response) {
     if (!error) {
       console.log(tweets);
@@ -144,4 +173,4 @@ var tweetSandler = function () {
 }
 
 tweetSandler();
-setInterval(tweetSandler, 1800000)
+setInterval(tweetSandler, 2940000)
