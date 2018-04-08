@@ -44,6 +44,13 @@ var otherArray = [
     "Never Stop Running",
     "You are your own limit 00:00:00",
     "Wake up, Workout",
+    "You miss 100% of the shots you dont take",
+    "Clear your mind of can't",
+    "Remember everything you need is already inside of you",
+    "Ever tried. Ever failed. No Matter. Try again. Fail again. Fail better",
+    "Only those who risk going too far, can possibly find out how far one can go.",
+    "The voice inside your head that says you can’t do this is a liar",
+    "You can throw in the towel, or you can use it to wipe the sweat off of your face",
     "Success isn't given it's earned",
     "Don't let fatigue make a coward out of you",
     "Write the Future",
@@ -97,18 +104,35 @@ var tweetSandler = function () {
     var searchQuery = [
         'trackandfield',
         'trackmeet',
-        'running',
         'uiltrack',
         'fartleks',
-        'mile repeats',
-        'mile run',
-        '26.2',
         'discus',
+        'shot put',
+        'pole vault',
+        'high jump',
+        'long jump',
+        'triple jump',
         '3200m',
-        '4x100',
-        'long run',
-        '110hurdles',
-        '4x400'
+        '400m relay',
+        '800m run',
+        '100m hurdles',
+        '110m hurdles',
+        '100m dash',
+        '800m relay',
+        '4x100 relay',
+        '4x800 relay',
+        '4x400 relay',
+        'distance medley',
+        '300m hurdles',
+        '200m dash',
+        '1600m run',
+        '1600m relay',
+        '26.2',
+        '3000 meter steeplechase',
+        '1500 meters',
+        '10,000 meters',
+        '5000 meters',
+        'javelin throw'
     ]
     
     function randomquery(search) {
@@ -156,7 +180,7 @@ var tweetSandler = function () {
 
   //============POST TWEET ===========================================
   //Test case for tweeting out 
-  client.post('statuses/update', {status: "RT @" + selected_tweet.screen_name + " " + selected_tweet.text + " ," + selected_tweet.location + " " + phrase + " , @Stop_Pre Knows Track Stuff"}, function(error, tweet, response) {
+  client.post('statuses/update', {status: "RT @" + selected_tweet.screen_name + " " + selected_tweet.text + " ," + selected_tweet.location + " - " + phrase + " -FUELED BY TRACKNERD @Stop_Pre"}, function(error, tweet, response) {
     if (!error) {
       console.log(tweet);
     }
@@ -173,4 +197,4 @@ var tweetSandler = function () {
 }
 
 tweetSandler();
-setInterval(tweetSandler, 2940000)
+setInterval(tweetSandler, 1800000)
