@@ -15,91 +15,91 @@
 var Twitter = require('twitter');
 var fs = require('fs');
 
-// var client = new Twitter({
-//     consumer_key: '3nHvdPzCLidgi0d0g8AJSQFpZ',
-//     consumer_secret: 'mfYAcJIYBMcSlZGcsYJxqySCWtiBYfvd9YE9EWUbVVRRylh3kP',
-//     access_token_key: '981694814445101056-etmMNN9n9M0s6fU9Dn6vtQrnicCxfW7',
-//     access_token_secret: 'mdb6WLuOVDDJhOPhl2Fl4dpH6gb2FvNkSGwfz5IeVhzNf'
-//   });
-
-
-// //==================API KEYS ==========================
 var client = new Twitter({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+    consumer_key: '3nHvdPzCLidgi0d0g8AJSQFpZ',
+    consumer_secret: 'mfYAcJIYBMcSlZGcsYJxqySCWtiBYfvd9YE9EWUbVVRRylh3kP',
+    access_token_key: '981694814445101056-etmMNN9n9M0s6fU9Dn6vtQrnicCxfW7',
+    access_token_secret: 'mdb6WLuOVDDJhOPhl2Fl4dpH6gb2FvNkSGwfz5IeVhzNf'
   });
+
+
+// // //==================API KEYS ==========================
+// var client = new Twitter({
+//     consumer_key: process.env.TWITTER_CONSUMER_KEY,
+//     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+//     access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+//     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+//   });
    
 
 // Tweet Options 
 var all_tweets = [];
 var historic_tweets = [];
 
-var otherArray = [ 
-    "If it doesn't challenge you, It won't change you",
-    "Persist Until Success Happens #Push",
-    "#TrainWithHeart",
-    "Rise Run Rest Repeat",
-    "Never Stop Running",
-    "You are your own limit 00:00:00",
-    "Wake up, Workout",
-    "You miss 100% of the shots you dont take",
-    "Clear your mind of can't",
-    "Remember everything you need is already inside of you",
-    "Ever tried. Ever failed. No Matter. Try again. Fail again. Fail better",
-    "Only those who risk going too far, can possibly find out how far one can go.",
-    "The voice inside your head that says you can’t do this is a liar",
-    "You can throw in the towel, or you can use it to wipe the sweat off of your face",
-    "Success isn't given it's earned",
-    "Don't let fatigue make a coward out of you",
-    "Write the Future",
-    "Victory is paid for in sweat",
-    "Earned not Given",
-    "If no one thinks you can, Then You Have To",
-    "There is no finish line",
-    "Unleash The Beast",
-    "#MakeItCount",
-    "Walk to the stadium, Sprint to the finish",
-    "Nearly isn't Enough",
-    "Don't dream of winning, Train for it",
-    "Remain the fastest, Become the Greatest",
-    "Find Your Greatness",
-    "Run Further, Run Faster, Run Together",
-    "#BetterForIt",
-    "Believe in the Run",
-    "I'd rather be running",
-    "Are we running today?",
-    "Running is cheaper than Therapy",
-    "Your only limit is you",
-    "Don't Dream of Running, Train for it",
-    "No rules, just run",
-    "Embrace the mud, the dirt, the GRIT",
-    "Every Damn Day",
-    "There is no 'Y' in running",
-    "Be Legendary",
-    "Willpower Knows No Obstacles",
-    "Start Unknown Finish Unforgettable",
-    "Greatness has no peak",
-    "My sport is your sport's punishment",
-    "Life is a sport, make it count",
-    "No rules Just run",
-    "Don't Quit",
-    "Run to be fierce",
-    "Yesterday you said tomorrow"
-    ]
 
-//function to choose random array 
-function chooseRandom(myArray) {
-    return myArray[Math.floor(Math.random() * myArray.length)];  
-}
-
-//random array
-var phrase = chooseRandom(otherArray)
 
 
 var tweetSandler = function () {
-
+    var otherArray = [ 
+        "If it doesn't challenge you, It won't change you",
+        "Persist Until Success Happens #Push",
+        "#TrainWithHeart",
+        "Rise Run Rest Repeat",
+        "Never Stop Running",
+        "You are your own limit 00:00:00",
+        "Wake up, Workout",
+        "You miss 100% of the shots you dont take",
+        "Clear your mind of can't",
+        "Remember everything you need is already inside of you",
+        "Ever tried. Ever failed. No Matter. Try again. Fail again. Fail better",
+        "Only those who risk going too far, can possibly find out how far one can go.",
+        "The voice inside your head that says you can’t do this is a liar",
+        "You can throw in the towel, or you can use it to wipe the sweat off of your face",
+        "Success isn't given it's earned",
+        "Don't let fatigue make a coward out of you",
+        "Write the Future",
+        "Victory is paid for in sweat",
+        "Earned not Given",
+        "If no one thinks you can, Then You Have To",
+        "There is no finish line",
+        "Unleash The Beast",
+        "#MakeItCount",
+        "Walk to the stadium, Sprint to the finish",
+        "Nearly isn't Enough",
+        "Don't dream of winning, Train for it",
+        "Remain the fastest, Become the Greatest",
+        "Find Your Greatness",
+        "Run Further, Run Faster, Run Together",
+        "#BetterForIt",
+        "Believe in the Run",
+        "I'd rather be running",
+        "Are we running today?",
+        "Running is cheaper than Therapy",
+        "Your only limit is you",
+        "Don't Dream of Running, Train for it",
+        "No rules, just run",
+        "Embrace the mud, the dirt, the GRIT",
+        "Every Damn Day",
+        "There is no 'Y' in running",
+        "Be Legendary",
+        "Willpower Knows No Obstacles",
+        "Start Unknown Finish Unforgettable",
+        "Greatness has no peak",
+        "My sport is your sport's punishment",
+        "Life is a sport, make it count",
+        "No rules Just run",
+        "Don't Quit",
+        "Run to be fierce",
+        "Yesterday you said tomorrow"
+        ]
+    
+    //function to choose random array 
+    function chooseRandom(myArray) {
+        return myArray[Math.floor(Math.random() * myArray.length)];  
+    }
+    
+    //random array
+    var phrase = chooseRandom(otherArray)
     
     var searchQuery = [
         'trackandfield',
@@ -109,9 +109,9 @@ var tweetSandler = function () {
         'discus',
         'shot put',
         'pole vault',
-        'high jump',
-        'long jump',
-        'triple jump',
+        'highjump',
+        'longjump',
+        'triplejump',
         '3200m',
         '400m relay',
         '800m run',
@@ -127,7 +127,7 @@ var tweetSandler = function () {
         '200m dash',
         '1600m run',
         '1600m relay',
-        '26.2',
+        '26.2 miles',
         '3000 meter steeplechase',
         '1500 meters',
         '10,000 meters',
@@ -197,4 +197,4 @@ var tweetSandler = function () {
 }
 
 tweetSandler();
-setInterval(tweetSandler, 1800000)
+// setInterval(tweetSandler, 1800000)
